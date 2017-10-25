@@ -5,7 +5,7 @@ using namespace std;
 class figure
 {
 public:
-	figure();
+
 	virtual void draw() = 0;
 };
 

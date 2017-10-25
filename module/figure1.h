@@ -1,9 +1,8 @@
 #pragma once
 #include "figure.h"
-class figure1
+class figure1 : public figure
 {
 public:
-	figure1();
 	void draw();
 };
 
