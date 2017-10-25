@@ -111,6 +111,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="figure.h" />
+    <ClInclude Include="figure1.h" />
+    <ClInclude Include="figure2.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="figure.cpp" />
+    <ClCompile Include="figure1.cpp" />
+    <ClCompile Include="figure2.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
