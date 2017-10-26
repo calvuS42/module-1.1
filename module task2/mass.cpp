@@ -1,6 +1,6 @@
 #include "mass.h"
 
-mass::mass(int a[], int n)
+mass::mass(int* a, int n)
 {
 	for (int i = 0; i < size; i++) {
 		for (int j = i+1; j < size; j++)
@@ -19,9 +19,11 @@ mass::mass(int a[], int n)
 mass::mass(mass & a)
 {
 	size = a.size;
+	int* mass = new int[size];
 	for (int i = 0; i < a.size; i++) {
-		arr[i] = a.arr[i];
+		mass[i] = a.arr[i];
 	}
+	arr = mass;
 }
 
 void mass::operator+=(int a)
@@ -35,24 +37,47 @@ void mass::operator+=(int a)
 		newArr[i] = arr[i];
 	}
 	newArr[size] = a;
-	delete[] arr;
+	delete arr;
 	arr = newArr;
 	size++;
 }
 
 void mass::operator-=(int a)
 {
-	int k = 0;
+	int k = -1;
 	int* newArr = new int[size - 1];
 	for (int i = 0; i < size; i++) {
 		if (arr[i] == a) k = i;
 	}
-	for (int i = 0; i < size-1; i++) { // not working
-		if (i != k) newArr[i] = arr[i];
-		else i++;
+	int j = 0;
+	for (int i = 0; i < size; i++) {
+		
+		if (i != k) {
+			newArr[j] = arr[i]; j++;
+		}
 	}
-	delete[] arr;
+	delete arr;
 	arr = newArr;
 	size--;
 }
 
+void mass::operator=(int * a)
+{
+}
+
+void mass::operator+(int * a)
+{
+}
+
+bool mass::operator==(mass a)
+{
+	return false;
+}
+
+ostream & operator<<(ostream & stream, mass mass)
+{
+	stream << "ur mass is:" << endl;
+	for (int i=0; i<mass.size; i++)
+		stream << mass.arr[i] << endl;
+	return stream;
+}

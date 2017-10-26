@@ -6,12 +6,16 @@ using namespace std;
 class mass
 {
 public:
-	mass(int a[], int n);
+	mass(int* a, int n);
 	mass(mass& a);
 	void operator+= (int a);
 	void operator-= (int a);
+	void operator=(int* a);
+	void operator+(int* a);
+	bool operator==(mass a);
+	friend ostream& operator << (ostream& stream, mass mass);
 private:
-	static int size;
+	int size;
 	int* arr;
 };
 
