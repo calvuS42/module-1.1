@@ -61,8 +61,14 @@ void mass::operator-=(int a)
 	size--;
 }
 
-void mass::operator=(int * a)
+void mass::operator=(mass a)
 {
+	int* newArr = new int[a.size];
+	for (int i = 0; i < a.size; i++) 
+		newArr[i] = a.arr[i];
+	size = a.size;
+	delete arr;
+	arr = newArr;
 }
 
 void mass::operator+(int * a)

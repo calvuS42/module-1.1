@@ -10,7 +10,7 @@ public:
 	mass(mass& a);
 	void operator+= (int a);
 	void operator-= (int a);
-	void operator=(int* a);
+	void operator=(mass a);
 	void operator+(int* a);
 	bool operator==(mass a);
 	friend ostream& operator << (ostream& stream, mass mass);
