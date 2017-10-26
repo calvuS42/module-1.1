@@ -28,37 +28,42 @@ mass::mass(mass & a)
 
 void mass::operator+=(int a)
 {
+	int k = 1;
 	for (int i = 0; i < size; i++) {
-		if (a == arr[i])
-			return;
+		if (a == arr[i]) k--;
 	}
-	int* newArr = new int[size + 1];
-	for (int i = 0; i < size; i++) {
-		newArr[i] = arr[i];
+	if (k) {
+		int* newArr = new int[size + 1];
+		for (int i = 0; i < size; i++) {
+			newArr[i] = arr[i];
+		}
+		newArr[size] = a;
+		delete arr;
+		arr = newArr;
+		size++;
 	}
-	newArr[size] = a;
-	delete arr;
-	arr = newArr;
-	size++;
 }
 
 void mass::operator-=(int a)
 {
 	int k = -1;
-	int* newArr = new int[size - 1];
+
 	for (int i = 0; i < size; i++) {
 		if (arr[i] == a) k = i;
 	}
-	int j = 0;
-	for (int i = 0; i < size; i++) {
-		
-		if (i != k) {
-			newArr[j] = arr[i]; j++;
+	if (k + 1) {
+		int* newArr = new int[size - 1];
+		int j = 0;
+		for (int i = 0; i < size; i++) {
+
+			if (i != k) {
+				newArr[j] = arr[i]; j++;
+			}
 		}
+		delete arr;
+		arr = newArr;
+		size--;
 	}
-	delete arr;
-	arr = newArr;
-	size--;
 }
 
 void mass::operator=(mass a)
