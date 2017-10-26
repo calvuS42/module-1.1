@@ -11,7 +11,7 @@ public:
 	void operator+= (int a);
 	void operator-= (int a);
 	void operator=(mass a);
-	void operator+(mass& a);
+	mass operator+(mass& a);
 	bool operator==(mass a);
 	friend ostream& operator << (ostream& stream, mass mass);
 private:

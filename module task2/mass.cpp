@@ -76,16 +76,13 @@ void mass::operator=(mass a)
 	arr = newArr;
 }
 
-void mass::operator+(mass& a)
+mass mass::operator+(mass& a)
 {
-	int* newArr = new int[size + a.size];
-	for (int i = 0; i < size; i++)
-		newArr[i] = arr[i];
-	for (int i=size; i<size+a.size; i++)
-		newArr[i] = a.arr[i-size];
-	delete arr;
-	arr = newArr;
-	size += a.size;
+	mass n(a);
+	for (int i = 0; i < size; i++) {
+		n += arr[i];
+	}
+	return n;
 }
 
 bool mass::operator==(mass a)
