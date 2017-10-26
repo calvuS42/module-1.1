@@ -6,7 +6,7 @@ void main() {
 	int a[5] = { 1, 5, 6, 8, 7};
 	mass posl2(a, 5);
 	cout << (posl2 == posl1) << endl;
-	posl2 = posl1;
+	posl2 + posl1;
 	cout << posl2;
 	system("pause");
 }
