@@ -71,7 +71,18 @@ void mass::operator+(int * a)
 
 bool mass::operator==(mass a)
 {
-	return false;
+	bool k = false;
+	if (a.size != size) return k;
+	else {
+		for (int i = 0; i < size; i++) {
+			k = false;
+			for (int j = 0; j < size; j++) {
+				if (arr[i] == a.arr[j]) k = true;
+			}
+			if (!k) return k;
+		}
+		return k;
+	}
 }
 
 ostream & operator<<(ostream & stream, mass mass)
